@@ -1,4 +1,5 @@
 # API SPEC
+Example of request and response, please check [this](./example-req-res.md).
 
 ## Create Event
 Request:
@@ -12,9 +13,7 @@ Request:
 {
     "name" : "string",
     "detail": "long",
-    "date": "date",
-    "createdAt": "date",
-    "updatedAt": "date"
+    "date": "date"
 }
 ```
 Response:
@@ -32,6 +31,12 @@ Response:
     }
 }
 ```
+Validation:
+- id should generated from database or application logic.
+- createdAt value should get from when the resource is created. 
+- updateAt value can be fill static datetime.
+- better to implement validation, { name, detail, date } should be not empty.
+
 ## Get Event
 Request:
 - Method: GET
@@ -54,6 +59,10 @@ Response:
   }
 }
 ```
+Validation:
+- if id of event not found
+- if id not a number
+
 ## Update Event
 Request:
 - Method: PUT
@@ -84,6 +93,10 @@ Response:
   }
 }
 ```
+Validation:
+- updatedAt value should get from when the resource is updated.
+- createdAt value can be set default or any, considering update query. The update query should not update the createdAt
+
 ## List Event
 Request:
 - Method: GET
@@ -116,6 +129,8 @@ Response:
     ]
 }
 ```
+Validation:
+- if data is null, return empty list -> []
 
 ## Delete Event
 Request:
@@ -131,3 +146,6 @@ Response:
     "status": "string"
 }
 ```
+Validation:
+- if id of event not found
+- if id not a number

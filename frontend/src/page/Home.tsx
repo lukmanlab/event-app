@@ -23,7 +23,7 @@ export default function Home() {
     setState({...state, detailEvent: event.target.value});
   };
 
-  const _onChange =(event: React.ChangeEvent<HTMLInputElement>) => {
+  const _onChangeDate =(event: React.ChangeEvent<HTMLInputElement>) => {
     setState({...state, date: event.target.value});
   }
 
@@ -47,7 +47,7 @@ export default function Home() {
           <input
             className="w-full p-2 outline outline-1 mb-4 rounded-xl"
             type="datetime-local"
-            onChange={_onChange}
+            onChange={_onChangeDate}
           />
           <button className="flex p-2 font-bold mt-7 text-white bg-green-800 mx-auto w-60 justify-center rounded-xl">Gass</button>
         </form>
